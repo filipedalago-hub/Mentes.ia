@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
-import { Home, User, Settings, HelpCircle, LogOut, Flame, Zap, Target } from 'lucide-react';
+import { Home, User, Settings, HelpCircle, LogOut, Flame, Zap, Target, TrendingUp } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { xpProgress } from '../utils/gamification';
 import { Logo } from './Logo';
@@ -83,6 +83,18 @@ export function AppLayout() {
               >
                 <Target className="w-5 h-5" />
                 Metas e Hábitos
+              </Link>
+
+              <Link
+                to="/app/progress"
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+                  isActive('/app/progress')
+                    ? 'bg-primary/20 text-neon-cyan font-medium border border-primary/30'
+                    : 'text-soft-gray hover:bg-titanium/50 hover:text-soft-white'
+                }`}
+              >
+                <TrendingUp className="w-5 h-5" />
+                Progresso
               </Link>
 
               <Link

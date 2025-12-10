@@ -1,0 +1,207 @@
+{
+  "levels": [
+    { "level": 1, "xpRequired": 0, "title": "Aprendiz", "description": "Dando os primeiros passos", "color": "#94A3B8" },
+    { "level": 2, "xpRequired": 100, "title": "Explorador", "description": "Descobrindo o caminho", "color": "#60A5FA" },
+    { "level": 3, "xpRequired": 400, "title": "Praticante", "description": "Construindo consistência", "color": "#3B82F6" },
+    { "level": 4, "xpRequired": 900, "title": "Dedicado", "description": "Comprometido com a jornada", "color": "#14F1FF" },
+    { "level": 5, "xpRequired": 1600, "title": "Resiliente", "description": "Superando desafios", "color": "#10B981" },
+    { "level": 6, "xpRequired": 2500, "title": "Focado", "description": "Concentração inabalável", "color": "#059669" },
+    { "level": 7, "xpRequired": 3600, "title": "Disciplinado", "description": "Hábitos profundos", "color": "#A855F7" },
+    { "level": 8, "xpRequired": 4900, "title": "Transformador", "description": "Mudança real acontecendo", "color": "#9333EA" },
+    { "level": 9, "xpRequired": 6400, "title": "Iluminado", "description": "Sabedoria crescente", "color": "#EC4899" },
+    { "level": 10, "xpRequired": 8100, "title": "Mestre Interior", "description": "Equilíbrio e maestria", "color": "#FBBF24" }
+  ],
+  "xpActions": {
+    "daily_checkin": { "xp": 5, "description": "Check-in diário" },
+    "habit_completion": { "xp": 5, "description": "Hábito concluído" },
+    "goal_progress": { "xp": 3, "description": "Progresso em meta" },
+    "goal_completion": { "xp": 10, "description": "Meta alcançada" },
+    "exercise_completion": { "xp": 8, "description": "Exercício completado" },
+    "meditation_session": { "xp": 10, "description": "Sessão de meditação" },
+    "journal_entry": { "xp": 7, "description": "Entrada no diário" },
+    "streak_milestone_7": { "xp": 20, "description": "7 dias consecutivos" },
+    "streak_milestone_30": { "xp": 50, "description": "30 dias consecutivos" },
+    "streak_milestone_100": { "xp": 100, "description": "100 dias consecutivos" }
+  },
+  "badges": [
+    {
+      "id": "first_steps",
+      "name": "Primeiros Passos",
+      "description": "Complete seu primeiro check-in",
+      "icon": "Footprints",
+      "color": "#14F1FF",
+      "rarity": "common",
+      "requirement": { "type": "checkins", "value": 1 }
+    },
+    {
+      "id": "habit_starter",
+      "name": "Construtor de Hábitos",
+      "description": "Crie seu primeiro hábito",
+      "icon": "Target",
+      "color": "#3B82F6",
+      "rarity": "common",
+      "requirement": { "type": "habits_created", "value": 1 }
+    },
+    {
+      "id": "goal_setter",
+      "name": "Visionário",
+      "description": "Defina sua primeira meta",
+      "icon": "Flag",
+      "color": "#10B981",
+      "rarity": "common",
+      "requirement": { "type": "goals_created", "value": 1 }
+    },
+    {
+      "id": "week_warrior",
+      "name": "Guerreiro Semanal",
+      "description": "Mantenha um streak de 7 dias",
+      "icon": "Flame",
+      "color": "#EF4444",
+      "rarity": "uncommon",
+      "requirement": { "type": "streak", "value": 7 }
+    },
+    {
+      "id": "month_master",
+      "name": "Mestre do Mês",
+      "description": "Mantenha um streak de 30 dias",
+      "icon": "Award",
+      "color": "#F59E0B",
+      "rarity": "rare",
+      "requirement": { "type": "streak", "value": 30 }
+    },
+    {
+      "id": "centurion",
+      "name": "Centurião",
+      "description": "Atinja 100 dias de streak",
+      "icon": "Crown",
+      "color": "#FBBF24",
+      "rarity": "epic",
+      "requirement": { "type": "streak", "value": 100 }
+    },
+    {
+      "id": "habit_champion",
+      "name": "Campeão de Hábitos",
+      "description": "Complete 100 hábitos",
+      "icon": "Trophy",
+      "color": "#14F1FF",
+      "rarity": "rare",
+      "requirement": { "type": "habits_completed", "value": 100 }
+    },
+    {
+      "id": "goal_achiever",
+      "name": "Realizador",
+      "description": "Complete 10 metas",
+      "icon": "CheckCircle2",
+      "color": "#10B981",
+      "rarity": "rare",
+      "requirement": { "type": "goals_completed", "value": 10 }
+    },
+    {
+      "id": "meditation_monk",
+      "name": "Monge Meditante",
+      "description": "Complete 50 sessões de meditação",
+      "icon": "Brain",
+      "color": "#A855F7",
+      "rarity": "rare",
+      "requirement": { "type": "exercises_completed", "value": 50 }
+    },
+    {
+      "id": "level_5",
+      "name": "Resiliente",
+      "description": "Alcance o nível 5",
+      "icon": "Zap",
+      "color": "#10B981",
+      "rarity": "uncommon",
+      "requirement": { "type": "level", "value": 5 }
+    },
+    {
+      "id": "level_10",
+      "name": "Mestre Interior",
+      "description": "Alcance o nível 10",
+      "icon": "Star",
+      "color": "#FBBF24",
+      "rarity": "legendary",
+      "requirement": { "type": "level", "value": 10 }
+    },
+    {
+      "id": "early_bird",
+      "name": "Madrugador",
+      "description": "Faça 10 check-ins antes das 8h",
+      "icon": "Sunrise",
+      "color": "#F59E0B",
+      "rarity": "uncommon",
+      "requirement": { "type": "early_checkins", "value": 10 }
+    },
+    {
+      "id": "perfectionist",
+      "name": "Perfeccionista",
+      "description": "Complete todos os hábitos por 7 dias seguidos",
+      "icon": "CheckCheck",
+      "color": "#EC4899",
+      "rarity": "epic",
+      "requirement": { "type": "perfect_week", "value": 7 }
+    },
+    {
+      "id": "explorer",
+      "name": "Explorador Mental",
+      "description": "Complete exercícios de todas as trilhas",
+      "icon": "Compass",
+      "color": "#3B82F6",
+      "rarity": "rare",
+      "requirement": { "type": "all_trilhas", "value": 1 }
+    },
+    {
+      "id": "xp_collector",
+      "name": "Colecionador de XP",
+      "description": "Acumule 5000 XP",
+      "icon": "Sparkles",
+      "color": "#14F1FF",
+      "rarity": "epic",
+      "requirement": { "type": "total_xp", "value": 5000 }
+    }
+  ],
+  "emotionalRewards": {
+    "levelUp": [
+      "Você está evoluindo! Continue nessa jornada incrível.",
+      "Seu crescimento é inspirador. Parabéns pelo novo nível!",
+      "Cada nível é uma prova do seu compromisso. Celebre essa conquista!",
+      "Sua dedicação está transformando você. Continue brilhando!",
+      "Mais um degrau conquistado. Seu futuro eu agradece!"
+    ],
+    "streakMilestone": [
+      "Sua consistência é poderosa! Continue assim.",
+      "Dia após dia, você está criando uma nova versão de si mesmo.",
+      "Streaks são construídos com determinação. Você tem isso!",
+      "Cada dia consecutivo é um tijolo na construção da sua melhor versão.",
+      "Sua disciplina está moldando seu destino. Impressionante!"
+    ],
+    "badgeEarned": [
+      "Nova conquista desbloqueada! Você merece esse badge.",
+      "Seu esforço foi recompensado. Parabéns pela conquista!",
+      "Cada badge conta uma história de superação. Esta é sua!",
+      "Você acabou de provar do que é capaz. Continue colecionando vitórias!",
+      "Badges são símbolos de progresso real. Este é todo seu!"
+    ],
+    "goalCompleted": [
+      "Meta alcançada! Você transformou sonho em realidade.",
+      "Cada meta completada é uma promessa cumprida consigo mesmo.",
+      "Parabéns! Você provou que pode fazer acontecer.",
+      "Do planejamento à execução: você dominou o processo!",
+      "Esta conquista é só o começo. Que venham novas metas!"
+    ],
+    "habitStreak": [
+      "Hábitos diários criam destinos extraordinários. Continue!",
+      "Você está reprogramando seu cérebro, uma repetição de cada vez.",
+      "Pequenas ações consistentes geram grandes transformações.",
+      "Seu hábito está se tornando parte de quem você é. Incrível!",
+      "A consistência vence o talento. Você está provando isso!"
+    ]
+  },
+  "rarityColors": {
+    "common": "#94A3B8",
+    "uncommon": "#3B82F6",
+    "rare": "#A855F7",
+    "epic": "#EC4899",
+    "legendary": "#FBBF24"
+  }
+}
