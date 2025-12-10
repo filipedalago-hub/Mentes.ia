@@ -1,0 +1,27 @@
+{
+  "name": "Mentes.ia - Desenvolvimento Mental com IA",
+  "short_name": "Mentes.ia",
+  "description": "Plataforma futurista de desenvolvimento mental e espiritual com tecnologia de IA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0F2D",
+  "theme_color": "#0A0F2D",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/logo/mentes-ia-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/logo/mentes-ia-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "education", "lifestyle"],
+  "lang": "pt-BR",
+  "dir": "ltr"
+}
