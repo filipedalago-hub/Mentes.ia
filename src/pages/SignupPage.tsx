@@ -60,8 +60,8 @@ export function SignupPage() {
       if (signUpError) {
         setError(signUpError.message || 'Erro ao criar conta');
       } else {
-        analytics.pageView('/dashboard', 'Dashboard');
-        navigate('/dashboard');
+        analytics.pageView('/app', 'Dashboard');
+        navigate('/app');
       }
     } catch (err) {
       setError('Erro inesperado. Tente novamente.');

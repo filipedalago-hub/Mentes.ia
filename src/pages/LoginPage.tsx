@@ -31,8 +31,8 @@ export function LoginPage() {
       if (signInError) {
         setError(signInError.message || 'Erro ao fazer login');
       } else {
-        analytics.pageView('/dashboard', 'Dashboard');
-        navigate('/dashboard');
+        analytics.pageView('/app', 'Dashboard');
+        navigate('/app');
       }
     } catch (err) {
       setError('Erro inesperado. Tente novamente.');

@@ -230,11 +230,11 @@ export function Dashboard() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {trilhas.map((trilha, index) => {
-            const IconComponent = ICON_MAP[trilha.icon] || Brain;
+            const IconComponent = ICON_MAP[trilha.icon_name] || Brain;
             return (
               <Link
                 key={trilha.id}
-                to={`/trilhas/${trilha.id}`}
+                to={`/app/trilha/${trilha.slug}`}
                 onClick={() => haptics.light()}
               >
                 <PremiumCard
@@ -255,7 +255,7 @@ export function Dashboard() {
                     </motion.div>
                     <div className="flex-1">
                       <h3 className="text-xl font-semibold text-soft-white mb-2">
-                        {trilha.title}
+                        {trilha.name}
                       </h3>
                       <Caption>{trilha.description}</Caption>
                     </div>
