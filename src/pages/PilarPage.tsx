@@ -125,7 +125,7 @@ export function PilarPage() {
             <Link
               key={exercise.id}
               to={`/app/trilha/${trilhaSlug}/${pilarSlug}/exercicios/${exercise.slug}`}
-              className="block bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-blue-300 transition-all group"
+              className="block bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-primary/50 transition-all group"
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
@@ -143,14 +143,14 @@ export function PilarPage() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="text-lg font-bold mb-1 group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-lg font-bold mb-1 group-hover:text-primary transition-colors">
                         {exercise.title}
                       </h3>
                       <p className="text-gray-600 text-sm">{exercise.description}</p>
                     </div>
                     <div className="flex items-center gap-2 flex-shrink-0">
-                      <span className="text-sm font-semibold text-blue-600">+{exercise.xp_reward} XP</span>
-                      <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600" />
+                      <span className="text-sm font-semibold text-primary">+{exercise.xp_reward} XP</span>
+                      <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-primary" />
                     </div>
                   </div>
                 </div>

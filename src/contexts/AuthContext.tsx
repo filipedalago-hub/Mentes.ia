@@ -57,11 +57,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const initAuth = async () => {
       try {
+        console.log('[AuthContext] Initializing auth...');
         const { data: { session } } = await supabase.auth.getSession();
 
-        if (!mounted) return;
+        if (!mounted) {
+          console.log('[AuthContext] Component unmounted, skipping state update');
+          return;
+        }
 
         setUser(session?.user ?? null);
+        console.log('[AuthContext] Session loaded:', session?.user ? 'authenticated' : 'not authenticated');
 
         if (session?.user) {
           const profileData = await fetchProfile(session.user.id);
@@ -69,22 +74,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             setProfile(profileData);
             analytics.setUserId(session.user.id);
             errorTracking.setUser(session.user.id, session.user.email);
+            console.log('[AuthContext] Profile loaded:', profileData?.display_name);
           }
         }
       } catch (error) {
+        console.error('[AuthContext] Init error:', error);
         errorTracking.captureException(error, { context: 'initAuth' });
       } finally {
         if (mounted) {
           setAuthReady(true);
+          console.log('[AuthContext] Auth ready');
         }
       }
     };
 
     initAuth();
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
       if (!mounted) return;
 
+      console.log('[AuthContext] Auth state changed:', event);
       setLoading(true);
       setUser(session?.user ?? null);
 
@@ -94,6 +103,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setProfile(profileData);
           analytics.setUserId(session.user.id);
           errorTracking.setUser(session.user.id, session.user.email);
+          console.log('[AuthContext] User signed in:', session.user.email);
         }
       } else {
         if (mounted) {
@@ -101,6 +111,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           analytics.setUserId(null);
           errorTracking.setUser(null);
           storage.clear();
+          console.log('[AuthContext] User signed out');
         }
       }
 

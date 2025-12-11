@@ -146,7 +146,7 @@ export function MoodTracker({ onSubmit, onSkip, context = 'session_start' }: Moo
             <div className="flex gap-3">
               <button
                 onClick={handleSubmit}
-                className="flex-1 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold shadow-md hover:opacity-90 transition"
+                className="flex-1 py-3 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold shadow-md hover:opacity-90 transition"
               >
                 Continuar
               </button>

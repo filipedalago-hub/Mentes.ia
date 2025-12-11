@@ -21,7 +21,7 @@ export function ProgressBar({ percentage, label, showPercentage = true }: Progre
       )}
       <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
         <div
-          className="bg-gradient-to-r from-blue-500 to-blue-600 h-full rounded-full transition-all duration-300 ease-out"
+          className="bg-gradient-to-r from-primary to-accent h-full rounded-full transition-all duration-300 ease-out"
           style={{ width: `${clampedPercentage}%` }}
           role="progressbar"
           aria-valuenow={clampedPercentage}

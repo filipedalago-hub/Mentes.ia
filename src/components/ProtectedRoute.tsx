@@ -10,13 +10,18 @@ interface ProtectedRouteProps {
 export function ProtectedRoute({ children }: ProtectedRouteProps) {
   const { user, authReady, loading } = useAuth();
 
+  console.log('[ProtectedRoute] State:', { authReady, loading, authenticated: !!user });
+
   if (!authReady || loading) {
+    console.log('[ProtectedRoute] Showing loading screen');
     return <LoadingScreen />;
   }
 
   if (!user) {
+    console.log('[ProtectedRoute] Redirecting to login');
     return <Navigate to="/login" replace />;
   }
 
+  console.log('[ProtectedRoute] Rendering protected content');
   return <>{children}</>;
 }

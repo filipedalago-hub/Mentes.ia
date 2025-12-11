@@ -62,7 +62,7 @@ export function AchievementNotification({
 
         <button
           onClick={onDismiss}
-          className="w-full py-3 mt-6 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold shadow-md hover:opacity-90 transition"
+          className="w-full py-3 mt-6 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold shadow-md hover:opacity-90 transition"
         >
           Continuar
         </button>
