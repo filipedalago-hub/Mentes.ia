@@ -1,221 +1,216 @@
 import { Link } from 'react-router-dom';
-import { Target, Award, TrendingUp, Users, Sparkles, Lock, Zap, Brain } from 'lucide-react';
+import { Target, Award, TrendingUp, Sparkles, Zap, Brain, Heart, Shield, Trophy } from 'lucide-react';
 import { Logo } from '../components/Logo';
+import { Button, Card } from '../components/ui';
 
 export function LandingPage() {
+  const features = [
+    {
+      icon: <Brain className="w-6 h-6" />,
+      title: 'Fundamentos Mentais',
+      description: 'Desenvolva autoconhecimento, inteligência emocional e mentalidade de crescimento com IA.',
+      gradient: 'bg-gradient-primary',
+    },
+    {
+      icon: <Zap className="w-6 h-6" />,
+      title: 'Treinamento da Mente',
+      description: 'Exercícios práticos de meditação, respiração consciente e técnicas de foco.',
+      gradient: 'bg-gradient-accent',
+    },
+    {
+      icon: <Heart className="w-6 h-6" />,
+      title: 'Desenvolvimento Espiritual',
+      description: 'Explore significado, propósito e práticas de autotranscendência.',
+      gradient: 'bg-gradient-neon',
+    },
+  ];
+
+  const benefits = [
+    {
+      icon: <Target size={24} />,
+      title: 'Metas Inteligentes',
+      description: 'Defina e acompanhe objetivos com sistema de progresso visual',
+    },
+    {
+      icon: <Trophy size={24} />,
+      title: 'Gamificação',
+      description: 'Ganhe XP, badges e desbloqueie conquistas em sua jornada',
+    },
+    {
+      icon: <TrendingUp size={24} />,
+      title: 'Progresso Real',
+      description: 'Visualize sua evolução com gráficos e estatísticas detalhadas',
+    },
+    {
+      icon: <Shield size={24} />,
+      title: 'Privacidade Total',
+      description: 'Seus dados estão seguros e criptografados',
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-dark">
       <div className="fixed inset-0 bg-gradient-to-b from-neon-cyan/5 via-transparent to-primary/5 pointer-events-none" />
 
       <nav className="relative z-10 border-b border-titanium/30 backdrop-blur-sm bg-dark/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-20">
             <Logo size="md" />
             <div className="flex items-center gap-4">
               <Link
                 to="/login"
-                className="px-4 py-2 text-soft-gray hover:text-soft-white transition-colors"
+                className="hidden sm:inline-block px-6 py-2 text-soft-white hover:text-primary transition-colors font-medium"
               >
                 Entrar
               </Link>
-              <Link
-                to="/signup"
-                className="btn-primary"
-              >
-                Comecar Agora
+              <Link to="/signup">
+                <Button variant="primary">Começar Agora</Button>
               </Link>
             </div>
           </div>
         </div>
       </nav>
 
-      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="text-center max-w-4xl mx-auto mb-20">
-          <div className="inline-block mb-6 px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/30 rounded-full">
+          <div className="inline-block mb-6 px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/30 rounded-full animate-pulse-slow">
             <span className="text-neon-cyan text-sm font-semibold flex items-center gap-2">
               <Sparkles className="w-4 h-4" />
-              Inteligencia Artificial + Neurociencia
+              Inteligência Artificial + Neurociência
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold text-soft-white mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-soft-white mb-6 leading-tight">
             Transforme Sua Mente,
             <br />
-            <span className="bg-gradient-special bg-clip-text text-transparent">
+            <span className="bg-gradient-accent bg-clip-text text-transparent">
               Transforme Sua Vida
             </span>
           </h1>
 
-          <p className="text-xl text-soft-gray mb-10 max-w-2xl mx-auto">
-            Desenvolva habitos mentais poderosos atraves de exercicios praticos e gamificacao envolvente.
-            Descubra seu proposito e alcance seu maximo potencial.
+          <p className="text-lg md:text-xl text-soft-gray mb-10 max-w-2xl mx-auto leading-relaxed">
+            Desenvolva hábitos mentais poderosos através de exercícios práticos e gamificação envolvente.
+            Descubra seu propósito e alcance seu máximo potencial.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/signup"
-              className="btn-neon text-lg px-8 py-4 animate-pulse-glow"
-            >
-              Comecar Jornada
+            <Link to="/signup">
+              <Button variant="neon" size="lg" className="w-full sm:w-auto min-w-[200px] shadow-glow-accent">
+                Começar Jornada
+              </Button>
             </Link>
-            <Link
-              to="/login"
-              className="btn-secondary text-lg px-8 py-4"
-            >
-              Ja tenho conta
+            <Link to="/login">
+              <Button variant="secondary" size="lg" className="w-full sm:w-auto min-w-[200px]">
+                Já tenho conta
+              </Button>
             </Link>
           </div>
 
-          <div className="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+          <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-neon-cyan mb-1">10K+</div>
-              <div className="text-sm text-soft-muted">Usuarios Ativos</div>
+              <div className="text-2xl md:text-3xl font-bold text-neon-cyan mb-1">10K+</div>
+              <div className="text-xs md:text-sm text-soft-muted">Usuários Ativos</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-1">95%</div>
-              <div className="text-sm text-soft-muted">Satisfacao</div>
+              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">95%</div>
+              <div className="text-xs md:text-sm text-soft-muted">Satisfação</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-neon-cyan mb-1">50+</div>
-              <div className="text-sm text-soft-muted">Exercicios</div>
+              <div className="text-2xl md:text-3xl font-bold text-neon-cyan mb-1">50+</div>
+              <div className="text-xs md:text-sm text-soft-muted">Exercícios</div>
             </div>
           </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-20">
-          <div className="card-glow group hover:scale-105 transition-transform">
-            <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 shadow-glow-primary">
-              <Brain className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold mb-3 text-soft-white">Fundamentos Mentais</h3>
-            <p className="text-soft-gray leading-relaxed">
-              Desenvolva autoconhecimento, inteligencia emocional e mentalidade de crescimento com IA.
-            </p>
-          </div>
+          {features.map((feature, index) => (
+            <Card key={index} variant="glow" className="group hover:scale-105 transition-all duration-300">
+              <div className={`w-12 h-12 ${feature.gradient} rounded-xl flex items-center justify-center mb-4 text-white`}>
+                {feature.icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-3 text-soft-white">{feature.title}</h3>
+              <p className="text-soft-gray leading-relaxed">
+                {feature.description}
+              </p>
+            </Card>
+          ))}
+        </div>
 
-          <div className="card-glow group hover:scale-105 transition-transform">
-            <div className="w-12 h-12 bg-gradient-special rounded-xl flex items-center justify-center mb-4 shadow-glow-md">
-              <Zap className="w-6 h-6 text-dark" />
-            </div>
-            <h3 className="text-xl font-semibold mb-3 text-soft-white">Treinamento da Mente</h3>
-            <p className="text-soft-gray leading-relaxed">
-              Desbloqueie todo o potencial mental atraves de neuro-habitos e exercicios avancados.
-            </p>
-          </div>
+        <div className="mb-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-soft-white mb-12">
+            Por que escolher Mentes.ia?
+          </h2>
 
-          <div className="card-glow group hover:scale-105 transition-transform">
-            <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 shadow-glow-primary">
-              <Target className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold mb-3 text-soft-white">Proposito e Espiritualidade</h3>
-            <p className="text-soft-gray leading-relaxed">
-              Descubra seu proposito de vida e aprofunde sua conexao espiritual.
-            </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {benefits.map((benefit, index) => (
+              <Card key={index} padding="lg" className="text-center hover:scale-105 transition-all duration-300">
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-primary/20 rounded-full mb-4 text-primary">
+                  {benefit.icon}
+                </div>
+                <h3 className="font-semibold text-soft-white mb-2">{benefit.title}</h3>
+                <p className="text-sm text-soft-muted leading-relaxed">{benefit.description}</p>
+              </Card>
+            ))}
           </div>
         </div>
 
-        <div className="card-dark p-12 mb-20 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-neon-cyan/10 rounded-full blur-3xl" />
-
-          <div className="relative z-10">
-            <h2 className="text-4xl font-bold text-center mb-4 text-soft-white">
-              Por Que <span className="text-neon-cyan">Mentes.ia</span>?
-            </h2>
-            <p className="text-center text-soft-gray mb-12 max-w-2xl mx-auto">
-              A plataforma mais avancada de desenvolvimento mental com tecnologia de IA
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="flex gap-4 group">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:shadow-glow-sm transition-shadow">
-                    <Award className="w-6 h-6 text-primary" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 text-soft-white">Gamificacao Inteligente</h3>
-                  <p className="text-soft-gray leading-relaxed">
-                    Ganhe XP, suba de nivel, mantenha sua sequencia diaria e desbloqueie conquistas enquanto evolui.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 group">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-neon-cyan/20 rounded-xl flex items-center justify-center group-hover:shadow-glow-sm transition-shadow">
-                    <TrendingUp className="w-6 h-6 text-neon-cyan" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 text-soft-white">Progresso Mensuravel</h3>
-                  <p className="text-soft-gray leading-relaxed">
-                    Acompanhe seu desenvolvimento atraves de metricas claras e visualize sua evolucao.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 group">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:shadow-glow-sm transition-shadow">
-                    <Brain className="w-6 h-6 text-primary" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 text-soft-white">Exercicios Praticos</h3>
-                  <p className="text-soft-gray leading-relaxed">
-                    Aplique o conhecimento atraves de exercicios variados e personalizados para cada objetivo.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 group">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-neon-cyan/20 rounded-xl flex items-center justify-center group-hover:shadow-glow-sm transition-shadow">
-                    <Users className="w-6 h-6 text-neon-cyan" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 text-soft-white">Comunidade Inspiradora</h3>
-                  <p className="text-soft-gray leading-relaxed">
-                    Junte-se a milhares de pessoas que estao transformando suas vidas atraves do desenvolvimento mental.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="text-center bg-gradient-primary rounded-2xl p-12 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-20" />
-
-          <div className="relative z-10">
-            <h2 className="text-4xl font-bold mb-4 text-white">Pronto Para Comecar?</h2>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Comece sua jornada de transformacao hoje mesmo. Gratis para comecar.
-            </p>
-            <Link
-              to="/signup"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary text-lg font-semibold rounded-xl hover:bg-soft-white transition-all shadow-lg hover:shadow-xl"
-            >
-              <Lock className="w-5 h-5" />
-              Criar Conta Gratuita
-            </Link>
-          </div>
-        </div>
+        <Card variant="gradient" padding="lg" className="text-center max-w-4xl mx-auto">
+          <Award className="w-16 h-16 text-primary mx-auto mb-6" />
+          <h2 className="text-3xl md:text-4xl font-bold text-soft-white mb-4">
+            Pronto para começar sua transformação?
+          </h2>
+          <p className="text-lg text-soft-gray mb-8 max-w-2xl mx-auto">
+            Junte-se a milhares de pessoas que estão transformando suas vidas com Mentes.ia.
+            Comece hoje mesmo sua jornada de autodescoberta.
+          </p>
+          <Link to="/signup">
+            <Button variant="primary" size="lg" className="min-w-[250px] shadow-glow-primary">
+              Criar Conta Grátis
+            </Button>
+          </Link>
+        </Card>
       </section>
 
-      <footer className="relative border-t border-titanium/30 bg-dark-lighter py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <Logo size="sm" />
+      <footer className="relative border-t border-titanium/20 bg-dark-lighter">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <Logo size="sm" className="mb-4" />
+              <p className="text-sm text-soft-muted leading-relaxed">
+                Transforme sua mente, transforme sua vida.
+              </p>
+            </div>
 
-            <p className="text-soft-muted text-sm">
-              Transformando mentes, transformando vidas.
-            </p>
+            <div>
+              <h3 className="font-semibold text-soft-white mb-4">Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a href="/sobre" className="text-sm text-soft-muted hover:text-primary transition-colors">
+                    Sobre nós
+                  </a>
+                </li>
+                <li>
+                  <a href="/ajuda" className="text-sm text-soft-muted hover:text-primary transition-colors">
+                    Ajuda
+                  </a>
+                </li>
+                <li>
+                  <a href="/privacidade" className="text-sm text-soft-muted hover:text-primary transition-colors">
+                    Privacidade
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-            <p className="text-soft-muted text-xs">
-              2025 Mentes.ia. Todos os direitos reservados.
+            <div>
+              <h3 className="font-semibold text-soft-white mb-4">Contato</h3>
+              <p className="text-sm text-soft-muted">contato@mentes.ia</p>
+            </div>
+          </div>
+
+          <div className="border-t border-titanium/20 pt-6 text-center">
+            <p className="text-sm text-soft-muted">
+              © {new Date().getFullYear()} Mentes.ia. Todos os direitos reservados.
             </p>
           </div>
         </div>
