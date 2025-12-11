@@ -70,8 +70,8 @@ export function StreakProtectionPanel() {
     <Card variant="glass" padding="lg">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <div className="p-3 bg-blue-500/20 rounded-xl border border-blue-500/40">
-            <Shield className="w-6 h-6 text-blue-400" />
+          <div className="p-3 bg-primary/20 rounded-xl border border-primary/40">
+            <Shield className="w-6 h-6 text-primary" />
           </div>
           <div>
             <h3 className="text-xl font-bold text-soft-white">Proteção de Streak</h3>

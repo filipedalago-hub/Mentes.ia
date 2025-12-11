@@ -30,13 +30,13 @@ export function LoginPage() {
 
       if (signInError) {
         setError(signInError.message || 'Erro ao fazer login');
+        setLoading(false);
       } else {
         analytics.pageView('/app', 'Dashboard');
-        navigate('/app');
+        navigate('/app', { replace: true });
       }
     } catch (err) {
       setError('Erro inesperado. Tente novamente.');
-    } finally {
       setLoading(false);
     }
   };

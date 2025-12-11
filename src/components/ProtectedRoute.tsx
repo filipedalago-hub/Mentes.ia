@@ -8,9 +8,9 @@ interface ProtectedRouteProps {
 }
 
 export function ProtectedRoute({ children }: ProtectedRouteProps) {
-  const { user, loading } = useAuth();
+  const { user, authReady, loading } = useAuth();
 
-  if (loading) {
+  if (!authReady || loading) {
     return <LoadingScreen />;
   }
 

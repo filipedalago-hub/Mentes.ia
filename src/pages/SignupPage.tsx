@@ -59,13 +59,13 @@ export function SignupPage() {
 
       if (signUpError) {
         setError(signUpError.message || 'Erro ao criar conta');
+        setLoading(false);
       } else {
         analytics.pageView('/app', 'Dashboard');
-        navigate('/app');
+        navigate('/app', { replace: true });
       }
     } catch (err) {
       setError('Erro inesperado. Tente novamente.');
-    } finally {
       setLoading(false);
     }
   };

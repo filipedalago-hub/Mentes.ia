@@ -24,7 +24,7 @@ const frequencies: { value: HabitFrequency; label: string }[] = [
 
 const colorOptions = [
   { value: 'cyan', label: 'Ciano', class: 'bg-neon-cyan' },
-  { value: 'blue', label: 'Azul', class: 'bg-blue-400' },
+  { value: 'blue', label: 'Azul', class: 'bg-primary' },
   { value: 'green', label: 'Verde', class: 'bg-green-400' },
   { value: 'purple', label: 'Roxo', class: 'bg-purple-400' },
   { value: 'pink', label: 'Rosa', class: 'bg-pink-400' },

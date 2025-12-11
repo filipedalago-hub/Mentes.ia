@@ -9,6 +9,7 @@ type AuthContextType = {
   user: User | null;
   profile: Profile | null;
   loading: boolean;
+  authReady: boolean;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signUp: (email: string, password: string, displayName: string) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
@@ -21,7 +22,8 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [authReady, setAuthReady] = useState(false);
 
   const fetchProfile = async (userId: string) => {
     try {
@@ -51,36 +53,66 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-      if (session?.user) {
-        fetchProfile(session.user.id).then(setProfile);
+    let mounted = true;
 
-        analytics.setUserId(session.user.id);
-        errorTracking.setUser(session.user.id, session.user.email);
-      }
-      setLoading(false);
-    });
+    const initAuth = async () => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      (() => {
+        if (!mounted) return;
+
         setUser(session?.user ?? null);
-        if (session?.user) {
-          fetchProfile(session.user.id).then(setProfile);
 
+        if (session?.user) {
+          const profileData = await fetchProfile(session.user.id);
+          if (mounted) {
+            setProfile(profileData);
+            analytics.setUserId(session.user.id);
+            errorTracking.setUser(session.user.id, session.user.email);
+          }
+        }
+      } catch (error) {
+        errorTracking.captureException(error, { context: 'initAuth' });
+      } finally {
+        if (mounted) {
+          setAuthReady(true);
+        }
+      }
+    };
+
+    initAuth();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+      if (!mounted) return;
+
+      setLoading(true);
+      setUser(session?.user ?? null);
+
+      if (session?.user) {
+        const profileData = await fetchProfile(session.user.id);
+        if (mounted) {
+          setProfile(profileData);
           analytics.setUserId(session.user.id);
           errorTracking.setUser(session.user.id, session.user.email);
-        } else {
+        }
+      } else {
+        if (mounted) {
           setProfile(null);
-
           analytics.setUserId(null);
           errorTracking.setUser(null);
           storage.clear();
         }
-      })();
+      }
+
+      if (mounted) {
+        setLoading(false);
+      }
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      mounted = false;
+      subscription.unsubscribe();
+    };
   }, []);
 
   const signIn = async (email: string, password: string) => {
@@ -185,7 +217,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, profile, loading, signIn, signUp, signOut, refreshProfile, updateProfile }}>
+    <AuthContext.Provider value={{ user, profile, loading, authReady, signIn, signUp, signOut, refreshProfile, updateProfile }}>
       {children}
     </AuthContext.Provider>
   );

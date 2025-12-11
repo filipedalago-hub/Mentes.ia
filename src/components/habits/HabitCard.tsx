@@ -13,7 +13,7 @@ const categoryColors: Record<string, string> = {
   health: 'text-green-400 bg-green-400/10 border-green-400/30',
   spiritual: 'text-purple-400 bg-purple-400/10 border-purple-400/30',
   personal: 'text-neon-cyan bg-neon-cyan/10 border-neon-cyan/30',
-  professional: 'text-blue-400 bg-blue-400/10 border-blue-400/30',
+  professional: 'text-primary bg-primary/10 border-primary/30',
   financial: 'text-yellow-400 bg-yellow-400/10 border-yellow-400/30',
   relationships: 'text-pink-400 bg-pink-400/10 border-pink-400/30',
 };

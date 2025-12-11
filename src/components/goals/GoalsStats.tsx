@@ -38,7 +38,7 @@ export function GoalsStats({ goals }: GoalsStatsProps) {
       icon: Calendar,
       label: 'Ativas',
       value: activeGoals,
-      color: 'text-blue-400 bg-blue-400/10',
+      color: 'text-primary bg-primary/10',
     },
   ];
 

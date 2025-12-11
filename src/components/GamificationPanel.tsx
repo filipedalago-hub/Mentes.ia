@@ -36,7 +36,7 @@ export function GamificationPanel({
 
   const getConsistencyColor = () => {
     if (consistencyScore >= 80) return 'text-green-600 bg-green-50';
-    if (consistencyScore >= 60) return 'text-blue-600 bg-blue-50';
+    if (consistencyScore >= 60) return 'text-primary bg-primary/10';
     if (consistencyScore >= 40) return 'text-yellow-600 bg-yellow-50';
     return 'text-orange-600 bg-orange-50';
   };
